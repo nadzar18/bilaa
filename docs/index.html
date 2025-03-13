@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamu Luar Biasa!</title>
+    <style>
+        /* Background bunga pink */
+        body {
+            background-image: url('https://source.unsplash.com/1600x900/?pink,flowers'); 
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
+            overflow: hidden;
+        }
+
+        /* Animasi fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Teks berkilau */
+        .shine {
+            font-size: 50px;
+            text-shadow: 0 0 5px white, 0 0 10px pink, 0 0 20px white;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px white, 0 0 10px pink, 0 0 20px white; }
+            to { text-shadow: 0 0 10px pink, 0 0 20px white, 0 0 30px pink; }
+        }
+
+        /* Styling untuk teks pujian */
+        .pujian {
+            font-size: 22px;
+            max-width: 600px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Efek hover */
+        .pujian:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
+            box-shadow: 0 0 10px white;
+        }
+
+        /* Tombol glowing */
+        .btn {
+            background: linear-gradient(45deg, #ff00ff, #ff66ff);
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 0 10px pink;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px white;
+            transform: scale(1.1);
+        }
+
+        /* Efek bunga jatuh */
+        @keyframes fall {
+            from { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .flower {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pink_rose.png/50px-Pink_rose.png') no-repeat center/cover;
+            animation: fall 5s linear infinite;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 class="shine">Hey Kamu yang Luar Biasa! ✨</h1>
+
+    <div class="pujian">✨ Kamu adalah pribadi yang kuat dan penuh semangat! Jangan biarkan siapa pun meragukan potensimu. ✨</div>
+    <div class="pujian">🌸 Senyummu seperti bunga yang mekar di pagi hari—indah dan menenangkan. 🌸</div>
+    <div class="pujian">💖 Dunia ini beruntung punya seseorang sebaik dan secantik dirimu! 💖</div>
+    <div class="pujian">🌟 Jangan lupa, kamu sudah melakukan yang terbaik dan itu luar biasa! 🌟</div>
+
+    <br>
+    <button class="btn" onclick="alert('Kamu memang luar biasa! 💖')">Klik untuk Kejutan!</button>
+
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-lovely.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        // Bunga jatuh
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = Math.random() * window.innerWidth + 'px';
+            flower.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 5000);
+        }
+
+        setInterval(createFlower, 500);
+    </script>
+
+</body>
+</html>
